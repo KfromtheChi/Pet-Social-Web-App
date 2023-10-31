@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Pet Social</title>
+</head>
+<body>
+    <h1>Pet Social</h1>
+    <ul>
+        <% user.forEach(function(u) { %>
+            <li>
+                <%= u.user %>
+                - 
+                <%= u.post ? 'post' : u.comment ? 'comment' %>
+            </li>
+        <% }); %>
+    </ul>
+    <a href="/">Back to Home Page</a>
+</body>
+</html>
