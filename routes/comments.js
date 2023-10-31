@@ -4,7 +4,11 @@ var router = express.Router();
 // Require the controller that exports To-Do CRUD functions
 var commentsCtrl = require('../controllers/comments');
 
-// GET / users
-router.get('/', commentsCtrl.index);
+// GET/comments
+router.get("/", commentsCtrl.index);
+
+// GET/comments/new
+//router.get("/new", commentsCtrl.new);
+
 
 module.exports = router;

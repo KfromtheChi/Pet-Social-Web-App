@@ -1,11 +1,11 @@
-const user = require('../models/user');
+const Post = require('../models/post');
 
 module.exports = {
     index
 };
 
 function index(req, res) {
-    res.render('users/index', {
-      users: User.getAll()
+    res.render('posts/index', {
+      posts: Post.getAll()
     });
 }
