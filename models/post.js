@@ -1,15 +1,13 @@
-const user = [
-    //{ user: 'Enter Email' },
-    //{ user: 'Create Username' },
-    //{ user: 'Create Password' },
-    { user: 'Create a Post' },
-    { user: 'Add a Comment' }
-];
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-module.exports = {
-    getAll
-};
+const postSchema = new Schema({
+    user: {type: ObjectId, ref: 'User'},
+    date: Date,
+    description: String,
+    comment: [String]
+}, {
+    timestamps: true
+});
 
-function getAll() {
-    return user;
-};
+module.exports = mongoose.model('Post', postSchema);
