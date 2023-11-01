@@ -29,6 +29,7 @@ function newPost(req, res) {
 
 async function index(req, res) {
     res.render('posts/index', {
-      //posts: await Post.getAll()
+      posts: await Post.find({}),
+      title: 'All Posts'
     });
 }

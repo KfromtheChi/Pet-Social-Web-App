@@ -9,12 +9,11 @@
 </head>
 <body>
    <nav>
-        <img src="/images/camera.svg">
-        <a href="/posts" <%- title === 'All Posts' ? 'class="active"' : '' %>>ALL POSTS</a>
         <% if (user) { %>
-            <a href="/posts/new"	<%- title === 'Add Post' ? 'class="active"' : '' %>>
-		        POST</a>
-            <a href="comments/new" <%- title === 'Add Comment' ? 'class="active"' : '' %>>COMMENT</a>
+            <a href="/posts" <%- title === 'All Posts' ? 'class="active"' : '' %>>MY POSTS</a>
+            &nbsp&nbsp
+            <a href="/posts/new"	<%- title === 'Add Post' ? 'class="active"' : '' %>>CREATE POST</a>
+                &nbsp&nbsp    
             <a href="/logout">LOG OUT</a>
         <% } else { %>
             <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>

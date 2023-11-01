@@ -9,7 +9,7 @@ var postsCtrl = require('../controllers/posts');
 router.get("/", postsCtrl.index);
 
 // GET/posts/new
-//router.get("/new", postsCtrl.new);
+router.get("/new", postsCtrl.new);
 
 // GET/posts/:id
 // router.get('/:id',postsCtrl.show);
@@ -18,7 +18,7 @@ router.get("/", postsCtrl.index);
 //router.get('/:id/edit', postsCtrl.edit);
 
 // POST/posts
-////router.post('/', postsCtrl.create);
+router.post('/', postsCtrl.create);
 
 // DELETE/posts/:id
 //router.delete('/:id', postsCtrl.delete);
