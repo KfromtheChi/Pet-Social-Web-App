@@ -3,18 +3,16 @@ const Post = require('../models/post');
 module.exports = {
   index,
   new: newPost,
-  create
+  create,
+  show
 };
 
-async function index(req, res) {
-    res.render('posts/index', {
-      posts: await Post.getAll()
-    });
+function show(req, res) {
+  res.render('posts/show', {
+    post: Post.getOne(req.params.id),
+    description: '',
+  });
 }
-
-function newPost(req, res) {
-  res.render('posts/new', { title: 'Create New Post', errorMsg: '' });
-};
 
 async function create(req, res) {
   try {
@@ -23,4 +21,14 @@ async function create(req, res) {
   } catch(err) {
     console.log(err);
   }
+}
+
+function newPost(req, res) {
+  res.render('posts/new', { title: 'Create New Post', errorMsg: '' });
+};
+
+async function index(req, res) {
+    res.render('posts/index', {
+      //posts: await Post.getAll()
+    });
 }

@@ -3,12 +3,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+//oauth express session
 var session = require('express-session');
+// oauth passport
+var passport = require('passport');
 
 // require dotenv before any other module
 require('dotenv').config();
 // require database.js - connect to the database
 require('./config/database');
+// require oauth passport
+require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -27,11 +32,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// oauth session middleware
 app.use(session({
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true
 }));
+// oauth passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
 
 // the / starts the path
 app.use('/', indexRouter);
