@@ -7,4 +7,7 @@ var usersCtrl = require('../controllers/users')
 // GET / users
 router.get('/', usersCtrl.index);
 
+// GET/users/new
+//router.get("/new", usersCtrl.new);
+
 module.exports = router;
