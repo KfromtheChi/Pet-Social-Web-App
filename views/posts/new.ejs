@@ -15,28 +15,25 @@
             <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
         <% } %>
     </nav> 
-    <form>
+    <form action="/posts" method="POST">
       <h2>New Post</h2>
-      <action="/posts" method="POST"> 
-      <label> Choose Photo</label>
       <br>
-      <br>
-      <label> 
-      <input type="image" name="Photo">
+      <label> Image URL
+      <input type="text" name="image">
       </label>
       <br>
       <br>
-      <label> Description
-      <input type="text" name="Photo Description">
+      <label> Caption
+      <input type="text" name="description">
       </label>
       <br>
       <br>
       <label> Location
-      <input type="text" name="Location">
+      <input type="text" name="location">
       </label>
       <br>
       <br>
-      <button type="upload photo">Post</button>
+      <button type="submit">Post</button>
     </form>
 
 <%- include('../partials/footer') %>

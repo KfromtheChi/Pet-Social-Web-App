@@ -30,11 +30,10 @@
 <section>
     <form action="/comment" method="POST">
       <br>
+      <br>
       <label> Like
       <input type="checkbox" name="Like" checked : not checked>
       </label>
-      <br>
-      <br>
       <label> Comment
       <input type="text" name="comment">
       </label>

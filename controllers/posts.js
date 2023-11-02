@@ -17,7 +17,7 @@ function show(req, res) {
 async function create(req, res) {
   try {
     const post = await Post.create({ ...req.body, user: req.user._id });
-    res.redirect(`/posts/${post._id}`)
+    res.redirect(`/posts`)
   } catch(err) {
     console.log(err);
   }
