@@ -1,6 +1,5 @@
 const Post = require('../models/post');
 
-
 module.exports = {
   create
 };
@@ -8,13 +7,15 @@ module.exports = {
 
 async function create(req, res) {
     const post = await Post.findById(req.params.id);
-    post.comments.push(req.body);
+  post.comments.push(req.body);
+    console.log(req.body)
     try {
-    await post.save();
+      await post.save();
+      console.log(post)
+        res.redirect(`/posts`);
     } catch(err) {
     console.log(err);
     }
-    res.redirect(`/posts/${post._id}`);
 }
 
 /*

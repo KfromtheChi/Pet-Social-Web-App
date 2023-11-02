@@ -1,0 +1,10 @@
+<% if (post.comments.length) { %>
+      <!--- <label>Date</label> --->
+      <!--- <label>Comment</label> --->
+      <% post.comments.forEach(function(c) { %>
+        <%= c.createdAt.toLocaleDateString() %>
+        <%= c.content %>
+    <% }); %>
+    <% } else { %>
+      <h5>No Comments Yet</h5>
+    <% } %>

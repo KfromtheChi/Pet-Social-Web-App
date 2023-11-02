@@ -6,7 +6,7 @@
   <title>Feed Page</title>
 </head>
 <body>
-<section>
+
   <%- include('../partials/header') %>
   <br>
   <form>
@@ -19,30 +19,21 @@
         <br>
         <br>
       <%= p.description %>
-      <%= p.like ? 'Yes' : 'No'  %>
+      <form action="/posts/<%= p._id %>/comments" method="POST">
+        <br>
+        <label> Comment
+        <input type="text" name="comment">
+        </label>
+        <br>
+        <br>
+        <button type="submit">Comment</button>
+      </form>
     <% }) %> 
     <% } else { %>
       <h3>No Posts Yet</h3>
     <% } %>
   </form>
-</section>
 
-<section>
-    <form action="/comment" method="POST">
-      <br>
-      <label> Like
-      <input type="checkbox" name="Like" checked : not checked>
-      </label>
-      <br>
-      <br>
-      <label> Comment
-      <input type="text" name="comment">
-      </label>
-      <br>
-      <br>
-      <button type="submit">Comment</button>
-    </form>
- </section>
 
   <%- include('../partials/footer') %>
 
