@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-     <h1>Pet Social</h1>
-</head>
-<body>
-<%- include('../partials/header') %>
+    <h1>Pet Social</h1>
+  </head>
+  <body>
+    <%- include('../partials/header') %>
     <h2>CHECK OUT THE LOCALS BEING SOCIAL!</h2>
-    <br>
-    <br>
-     <% if(posts.length) { %>
-        <% posts.forEach(function (p) { %>
-            <img src= '<%= p.image %>'/>
-            <%= p.description %>
-        <form action="/posts/<%= p._id %>/comments" method="POST">
-         <br>
-            <label> Add a comment...
-            <input type="text" name="comment">
-            </label>
-            <button type="submit">Post</button>
-        </form>
-            <% }); %>
-        <% } else { %>
-            <h3>No Posts Yet</h3>
-        
+    <br />
+    <br />
+    <% if(posts.length) { %> 
+      <% posts.forEach(function (p) { %>
+        <img src="<%= p.image %>" />
+        <%= p.description %>
+      <form action="/posts/<%= p._id %>/comments" method="POST">
+        <br />
+        <label>
+          Add a comment...
+          <input type="text" name="comment" />
+        </label>
+        <button type="submit">Post</button>
+      </form>
+      <% if(p.comments.length) { %> 
+        <% p.comments.forEach(function(c) { %> 
+          <p><%= c.comment %></p>
+        <% }); %>
+      <% } else { %>
+          <h5>No Comments Yet</h5> 
+      <% }; %> 
+    <% }); %> 
+    <% } else { %>
+      <h3>No Posts Yet</h3>
     <% }; %>
-
-        
-</body>
+  </body>
 </html>
