@@ -4,10 +4,8 @@ const Schema = mongoose.Schema;
 // since comments are not saved to their own collection, no model is needed
 //subdocument to a post, so all it needs is a schema in the post schema
 const commentSchema = new Schema({
-    comment: { type: String, required: true },
-}); {
-    timestamps: true
-};
+    comment: { String }
+});
     //user: {type: Schema.Types.ObjectId, ref: 'User'},
     //post: {type: Schema.Types.ObjectId, ref: 'Post'},
     //replies: [{type: Schema.Types.ObjectId, ref: 'Comment'}]
@@ -18,8 +16,6 @@ const postSchema = new Schema({
     image: String,
     location: String,
     comments: [commentSchema]
-}, {
-    timestamps: true
 });
 
 
