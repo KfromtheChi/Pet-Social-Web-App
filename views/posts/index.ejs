@@ -17,10 +17,8 @@
         <%= p.description %>
       <form action="/posts/<%= p._id %>/comments" method="POST">
         <br />
-        <label>
-          Add a comment...
+        <label> Add a comment...</label>
           <input type="text" name="comment" />
-        </label>
         <button type="submit">Post</button>
       </form>
       <% if(p.comments.length) { %> 
