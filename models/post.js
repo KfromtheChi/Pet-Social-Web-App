@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// since comments are not saved to their own collection, no model is needed
-//subdocument to a post, so all it needs is a schema in the post schema
+// comments are not saved to their own collection
+// no modelneeded
+// subdocument to a post = comment schema in post schema (embedded)
+
 const commentSchema = new Schema({
     comment: { type: String, required: true }
 });
-    //user: {type: Schema.Types.ObjectId, ref: 'User'},
-    //post: {type: Schema.Types.ObjectId, ref: 'Post'},
-    //replies: [{type: Schema.Types.ObjectId, ref: 'Comment'}]
     
 const postSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -18,5 +17,5 @@ const postSchema = new Schema({
     comments: [commentSchema]
 });
 
-
 module.exports = mongoose.model('Post', postSchema);
+

@@ -4,15 +4,15 @@ module.exports = {
   index,
   new: newPost,
   create,
+  delete: deletePost
   //show
 };
 
-// function show(req, res) {
-//   res.render('posts/show', {
-//     post: Post.getOne(req.params.id),
-//     description: '',
-//   });
-// }
+
+async function deletePost (req, res) {
+  await Post.findByIdAndDelete(req.params.id);
+  res.redirect('/posts');
+};
 
 async function create(req, res) {
   //req.body.like = !!req.body.like;
@@ -21,16 +21,23 @@ async function create(req, res) {
       res.redirect(`/posts`)
   } catch(err) {
       console.log(err);
-  }
+  };
 };
 
 function newPost(req, res) {
   res.render('posts/new', { title: 'Create New Post', errorMsg: '' });
 };
-//****** async, await
+
 async function index(req, res) {
     res.render('posts/index', {
       posts: await Post.find({}),
       title: 'All Posts'
     });
 };
+
+// function show(req, res) {
+//   res.render('posts/show', {
+//     post: Post.getOne(req.params.id),
+//     description: '',
+//   });
+// }

@@ -14,20 +14,30 @@
     <% if(posts.length) { %> 
       <% posts.forEach(function (p) { %>
         <img src="<%= p.image %>" />
+        <br>
         <%= p.description %>
+        <form
+          action="/posts/<%= p.id %>?_method=DELETE"
+          method="POST"
+          class="delete-form"
+          >
+            <button type="submit">X</button>
+        </form>
       <form action="/posts/<%= p._id %>/comments" method="POST">
-        <br />
-        <label> Add a comment...</label>
+        <label><h4> Add a comment...</h4></label>
           <input type="text" name="comment" />
         <button type="submit">Post</button>
       </form>
+      <label><h4>All Comments</h4></label>
       <% if(p.comments.length) { %> 
         <% p.comments.forEach(function(c) { %> 
           <p><%= c.comment %></p>
         <% }); %>
       <% } else { %>
-          <h5>No Comments Yet</h5> 
+          <label><h4>No Comments Yet</h4></label> 
       <% }; %> 
+      <br>
+      <br>
     <% }); %> 
     <% } else { %>
       <h3>No Posts Yet</h3>
