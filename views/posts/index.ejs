@@ -30,9 +30,25 @@
       </form>
       <label><h4>All Comments</h4></label>
       <% if(p.comments.length) { %> 
-        <% p.comments.forEach(function(c) { %> 
-          <p><%= c.comment %></p>
-        <% }); %>
+        <% p.comments.forEach(function(c) { %>
+          <div id="commentContent">
+            <label><%= c.comment %></label>
+            <button id="openEditForm">Edit</button>
+          </div> 
+          <div id="editCommentForm" style="display: none;">
+            <form action="/comments/<%= c.id %>?_method=PUT" method=POST>
+              <input type="text" name="comment">
+              <button type="submit">Update</button>
+            </form>
+            <form
+            action="/comments/<%= c.id %>?_method=DELETE"
+            method="POST"
+            class="delete-form"
+            >
+            <button type="submit">X</button>
+          </form>
+        </div>
+          <% }); %>
       <% } else { %>
           <label><h4>No Comments Yet</h4></label> 
       <% }; %> 
@@ -43,4 +59,5 @@
       <h3>No Posts Yet</h3>
     <% }; %>
   </body>
+  <script src="javascripts/script.js"></script>
 </html>

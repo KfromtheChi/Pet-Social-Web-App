@@ -7,11 +7,13 @@ var commentsCtrl = require('../controllers/comments');
 // POST/posts/:id/comments
 router.post('/posts/:id/comments', commentsCtrl.create);
 
-// GET/comments
-//router.get("/", commentsCtrl.index);
+// DELETE/comments/:id
+router.delete('/comments/:id', commentsCtrl.delete);
 
-// GET/comments/new
-//router.get("/new", commentsCtrl.new);
+// GET/comments/:id/edit
+router.get('/comments/:id', commentsCtrl.edit);
+
 
 
 module.exports = router;
+

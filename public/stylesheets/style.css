@@ -29,3 +29,11 @@ img {
   height: 50vh;
   align-items: center;
 }
+	
+.delete-form button {
+  color: lightpink;
+  background-color: red;
+  border: none;
+  size: 1px 1px 1px 1px;
+}
+	
