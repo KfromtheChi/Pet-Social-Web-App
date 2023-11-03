@@ -15,7 +15,7 @@ module.exports = {
 // }
 
 async function create(req, res) {
-  req.body.like = !!req.body.like;
+  //req.body.like = !!req.body.like;
   try {
     await Post.create({ ...req.body, user: req.user._id });
       res.redirect(`/posts`)
@@ -28,9 +28,9 @@ function newPost(req, res) {
   res.render('posts/new', { title: 'Create New Post', errorMsg: '' });
 };
 //****** async, await
-function index(req, res) {
+async function index(req, res) {
     res.render('posts/index', {
-      posts: Post.find({}),
+      posts: await Post.find({}),
       title: 'All Posts'
     });
 };

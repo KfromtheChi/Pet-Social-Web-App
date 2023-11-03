@@ -7,20 +7,14 @@
      <h1>Pet Social</h1>
 </head>
 <body>
-    <%- include('../partials/header') %>
-
+<%- include('../partials/header') %>
     <h2>CHECK OUT THE LOCALS BEING SOCIAL!</h2>
     <br>
     <br>
-    if(posts.length) {
-        posts.forEach(function (p) {
-            <img src= '<%= posts.image %>'/>
-            <%= posts.description %>
-        } else {
-            <h3>No Posts Yet</h3>
-        });
-    };
-
+     <% if(posts.length) { %>
+        <% posts.forEach(function (p) { %>
+            <img src= '<%= p.image %>'/>
+            <%= p.description %>
         <form action="/posts/<%= p._id %>/comments" method="POST">
          <br>
             <label> Add a comment...
@@ -28,14 +22,12 @@
             </label>
             <button type="submit">Post</button>
         </form>
+            <% }); %>
+        <% } else { %>
+            <h3>No Posts Yet</h3>
+        
+    <% }; %>
 
-    if(posts.comments.length) {
-        post.comments.forEach(function(c) {
-            <%= c.comment %>
-        } else {
-            <h5>No Comments Yet</h5>
-        });
-    };
-   
+        
 </body>
 </html>
