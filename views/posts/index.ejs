@@ -21,21 +21,20 @@
           method="POST"
           class="delete-form"
           >
-            <button type="submit">X</button>
+            <button type="submit">Delete X</button>
         </form>
       <form action="/posts/<%= p._id %>/comments" method="POST">
         <label><h4> Add a comment...</h4></label>
           <input type="text" name="comment" />
         <button type="submit">Post</button>
       </form>
-      <label><h4>All Comments</h4></label>
+      <label><h4>Comments</h4></label>
       <% if(p.comments.length) { %> 
         <% p.comments.forEach(function(c) { %>
-          <div id="commentContent">
-            <label><%= c.comment %></label>
-            <button id="openEditForm">Edit</button>
-          </div> 
-          <div id="editCommentForm" style="display: none;">
+          <br>
+          <label class="commentContent"><%= c.comment %></label>
+          <button class="openEditForm">Edit</button>
+          <div class="editCommentForm" style="display: none;">
             <form action="/comments/<%= c.id %>?_method=PUT" method=POST>
               <input type="text" name="comment">
               <button type="submit">Update</button>
@@ -45,7 +44,7 @@
             method="POST"
             class="delete-form"
             >
-            <button type="submit">X</button>
+            <button type="submit">Delete X</button>
           </form>
         </div>
           <% }); %>

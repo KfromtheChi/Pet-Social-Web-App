@@ -1,3 +1,7 @@
+* {
+  background-color: lightyellow;
+}
+
 body {
   padding: 50px;
   font: 14px "Comic Sans MS";
@@ -13,21 +17,17 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 34px;
 }
 
 #big-G {
   width: 30px;
-  height: 30px
+  height: 30px;
+  align-items: center;
 };
-
-head {
-text-align: left;
-}
 
 img {
   height: 50vh;
-  align-items: center;
+  width: 75vh;
 }
 	
 .delete-form button {

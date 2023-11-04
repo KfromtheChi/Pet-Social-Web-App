@@ -11,7 +11,7 @@ router.post('/posts/:id/comments', commentsCtrl.create);
 router.delete('/comments/:id', commentsCtrl.delete);
 
 // GET/comments/:id/edit
-router.get('/comments/:id', commentsCtrl.edit);
+router.put('/comments/:id', commentsCtrl.edit);
 
 
 
