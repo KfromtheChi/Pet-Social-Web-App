@@ -6,14 +6,30 @@ const Schema = mongoose.Schema;
 // subdocument to a post = comment schema in post schema (embedded)
 
 const commentSchema = new Schema({
-    comment: { type: String, required: true }
+    comment: {
+        type: String,
+        required: true
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    userName: String,
+    userAvatar: String
 });
     
 const postSchema = new Schema({
-    user: { type: Schema.Types.ObjectId, ref: 'User' },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
     description: String,
     image: String,
     location: String,
+    userName: String,
+    userAvatar: String,
     comments: [commentSchema]
 });
 

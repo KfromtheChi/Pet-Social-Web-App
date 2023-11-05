@@ -16,6 +16,9 @@ async function deletePost (req, res) {
 
 async function create(req, res) {
   //req.body.like = !!req.body.like;
+  req.body.user = req.user._id;
+  req.body.userName = req.user.name;
+  req.body.userAvatar = req.user.avatar;
   try {
     await Post.create({ ...req.body, user: req.user._id });
       res.redirect(`/posts`)

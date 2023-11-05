@@ -1,5 +1,9 @@
 * {
-  background-color: lightyellow;
+  background-color: whitesmoke;
+}
+
+h1 {
+background-color: lightskyblue;
 }
 
 body {
@@ -12,11 +16,53 @@ a {
   color: #00B7FF;
 }
 
+img {
+  height: 40vh;
+  width: 65vh;
+}
+
 /* partials header/navigation*/
 .login {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.delete-form button {
+  color: lightpink;
+  background-color: red;
+  border: none;
+  size: 1px 1px 1px 1px;
+}
+
+Edit button {
+  border: none;
+}
+
+.comment-user {
+  display: inline-flexbox;
+  justify-content: center;
+  align-items: center;
+  background-color: lightskyblue;
+}
+
+.comment-user img {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
+.post-user {
+  display: inline-flexbox;
+  justify-content: center;
+  align-items: center;
+  background-color: lightskyblue;
+}
+
+.post-user img {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
 }
 
 #big-G {
@@ -25,15 +71,3 @@ a {
   align-items: center;
 };
 
-img {
-  height: 50vh;
-  width: 75vh;
-}
-	
-.delete-form button {
-  color: lightpink;
-  background-color: red;
-  border: none;
-  size: 1px 1px 1px 1px;
-}
-	

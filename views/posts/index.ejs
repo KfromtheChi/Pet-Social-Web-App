@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <h1>Pet Social</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title><%= title %></title>
+  <h1>Pet Social</h1>
   </head>
   <body>
     <%- include('../partials/header') %>
@@ -15,25 +17,43 @@
       <% posts.forEach(function (p) { %>
         <img src="<%= p.image %>" />
         <br>
+        <br>
+    <% if (user) { %>
+        <label class="post-user"><img alt="avatar" src="<%= p.userAvatar %>" referrerpolicy="no-referrer" ><%= p.userName %>> </label>
+    <% } %>
+        &nbsp&nbsp&nbsp&nbsp&nbsp
         <%= p.description %>
-        <form
-          action="/posts/<%= p.id %>?_method=DELETE"
+        <br>
+        <%= p.location %>
+        <br>
+        <br>
+    <% if (user) { %>
+        <form action="/posts/<%= p.id %>?_method=DELETE"
           method="POST"
           class="delete-form"
           >
-            <button type="submit">Delete X</button>
+            <button type="submit">X</button>
         </form>
+    <% } %>
+    <% if (user) { %> 
       <form action="/posts/<%= p._id %>/comments" method="POST">
         <label><h4> Add a comment...</h4></label>
           <input type="text" name="comment" />
-        <button type="submit">Post</button>
+        <button type="submit">Post</button> 
       </form>
-      <label><h4>Comments</h4></label>
+    <% } %>
+      <label><h4>All Comments</h4></label>
       <% if(p.comments.length) { %> 
         <% p.comments.forEach(function(c) { %>
-          <br>
-          <label class="commentContent"><%= c.comment %></label>
-          <button class="openEditForm">Edit</button>
+            <label class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %>> </label>
+            &nbsp&nbsp&nbsp&nbsp&nbsp
+            <%= c.comment %>
+            &nbsp&nbsp&nbsp&nbsp
+    <% if (user) { %>
+            <label class="commentContent"></label>
+            <button class="openEditForm">Edit</button>
+            <br>
+            <br>
           <div class="editCommentForm" style="display: none;">
             <form action="/comments/<%= c.id %>?_method=PUT" method=POST>
               <input type="text" name="comment">
@@ -44,10 +64,11 @@
             method="POST"
             class="delete-form"
             >
-            <button type="submit">Delete X</button>
+            <button type="submit">X</button>
           </form>
         </div>
-          <% }); %>
+    <% } %>
+        <% }); %>
       <% } else { %>
           <label><h4>No Comments Yet</h4></label> 
       <% }; %> 

@@ -25,9 +25,12 @@ async function deleteComment (req, res) {
 };
 
 async function create(req, res) {
-    const post = await Post.findById(req.params.id);
-      post.comments.push(req.body);
-        console.log(req.body)
+  const post = await Post.findById(req.params.id);
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
+    post.comments.push(req.body);
+      console.log(req.body)
     try {
       await post.save();
         res.redirect(`/posts`);
