@@ -27,8 +27,9 @@ This idea..yet again...was not my first original idea - and really started out s
 1. HTML
 2. CSS
 3. JavaScript
-4. MongoDB
-5. Mongoose
+4. Express Generator Framework
+5. MongoDB
+6. Mongoose
 
 
 ## Check Out Pet Social
