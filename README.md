@@ -27,9 +27,11 @@ This idea..yet again...was not my first original idea - and really started out s
 1. HTML
 2. CSS
 3. JavaScript
-4. Express Generator Framework
-5. MongoDB
-6. Mongoose
+4. DOM
+5. Express Generator Framework
+6. MongoDB
+7. Mongoose
+8. Oauth - Passport - Google API
 
 
 ## Check Out Pet Social
@@ -42,6 +44,7 @@ Coming soon: Heroku Online Deployment
 ## Future Updates
 - [ ] Like button.
 - [ ] Upload images from a device photo library vs. an online photo library currently.
+- [ ] A logo or image(s) for the welcome page.  Maybe a collage of random user photos?
 - [ ] Collapsable comment content - some comments are displayed initially but to see all comments, user clicks the content box to reveal the rest.
 - [ ] User profile where user can see all their posts in one place.
 - [ ] User to user messages.
