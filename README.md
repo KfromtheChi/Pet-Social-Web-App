@@ -42,7 +42,7 @@ Coming soon: Heroku Online Deployment
 
 
 ## Future Updates
-- [ ] Like button.
+- [ ] Love button.
 - [ ] Upload images from a device photo library vs. an online photo library currently.
 - [ ] A logo or image(s) for the welcome page.  Maybe a collage of random user photos?
 - [ ] Collapsable comment content - some comments are displayed initially but to see all comments, user clicks the content box to reveal the rest.
